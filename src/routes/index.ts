@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
     routes: [
       'products'
       ]
-  })
+  });
 });
 
 router.use('/store', store);
