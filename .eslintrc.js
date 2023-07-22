@@ -3,9 +3,16 @@ module.exports = {
     browser: true,
     es2021: true
   },
-  extends: "eslint:recommended",
+  extends: [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+  ],
   parserOptions: {
     ecmaVersion: "latest",
-    sourceType: "module"
+    sourceType: "module",
+  },
+  rules: {
+    semi: ['error'],
+    "@typescript-eslint/no-explicit-any": "warn",
   }
 }

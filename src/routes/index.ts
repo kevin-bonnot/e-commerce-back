@@ -1,4 +1,5 @@
 import {Router} from "express";
+import store from "./store";
 
 const router = Router();
 
@@ -7,7 +8,9 @@ router.get('/', (req, res) => {
     routes: [
       'products'
       ]
-  })
+  });
 });
+
+router.use('/store', store);
 
 export default router;
