@@ -5,7 +5,8 @@ const pool = new Pool({
   host: process.env.PG_HOST as string,
   database: process.env.PG_NAME as string,
   password: process.env.PG_PSW as string,
-  port: parseInt(process.env.PG_PORT as string, 10)
+  port: parseInt(process.env.PG_PORT as string, 10),
+  ssl: true
 });
 
 export default pool;
