@@ -12,7 +12,7 @@ router.get('/', (req: any, res) => {
   pool.query(`select id, name, description, price, stock, image from product where store = ${storeId} and is_active=true`, (err, result) => {
     if (err) {
       console.error(err);
-      res.status(500).json({error: 'Erreur'});
+      res.status(500).json({error: err});
     } else {
       res.json(result.rows);
     }
