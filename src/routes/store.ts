@@ -1,11 +1,11 @@
 import {Router} from "express";
-import pool from "../db";
+import client from "../db";
 import product from "./product";
 
 const router = Router();
 
 router.get('/', (req, res) => {
-  pool.query('select * from store', (err, result) => {
+  client.query('select * from store', (err, result) => {
     if (err) {
       console.error(err);
       res.status(500).json({error: err});
@@ -21,7 +21,7 @@ router.get('/:storeId', (req, res) => {
     res.status(404).json({error: 'Not found'});
     return;
   }
-  pool.query(`select * from store where store.id = ${storeId}`, (err, result) => {
+  client.query(`select * from store where store.id = ${storeId}`, (err, result) => {
     if (err) {
       res.status(500).json({error: err});
     } else if (result.rowCount === 0) {
